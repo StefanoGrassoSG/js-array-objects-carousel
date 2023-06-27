@@ -24,6 +24,24 @@ const images = [
 
 createSlide(images);
 
+let current = 0;
+const next = document.querySelector('.next')
+
+next.addEventListener('click', function(){
+    const allSlides = document.querySelectorAll('.slides')
+
+    if(current < allSlides.length - 1) {
+        allSlides[current].classList.remove('active');
+        current++;
+        allSlides[current].classList.add('active');
+    }
+
+    else {
+        allSlides[current].classList.remove('active');
+        current = 0;
+        allSlides[current].classList.add('active');
+    }
+})
 
 
 
@@ -52,7 +70,7 @@ function createSlide(array) {
         else {
             slide.classList.add('slides');  
         }
-        
+
         for(let key in element) {
             console.log(key, element[key]);
             slide.append(img)
