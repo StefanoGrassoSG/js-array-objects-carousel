@@ -77,7 +77,18 @@ function createSlide(array) {
         const element = array[i];
         const slide = document.createElement('div');
         const img = document.createElement('img')
+        const title = document.createElement('h2')
+        const text = document.createElement('p')
         slideContainer.append(slide)
+
+        slide.append(title)
+        title.append(element.title)
+        title.classList.add('title-style')
+
+        slide.append(text)
+        text.append(element.text)
+        text.classList.add('title-text')
+        
         
         if (i == 0) {
             slide.classList.add('slides');   
