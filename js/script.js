@@ -32,14 +32,6 @@ createSlide(images);
 
 
 
-
-
-
-
-
-
-
-
 /*********************
     FUNCTIONS
 **********************/
@@ -47,7 +39,12 @@ createSlide(images);
 function createSlide(array) {
     const slideContainer = document.querySelector('.slides')
     for(i = 0; i < array.length; i++) {
+        const element = array[i];
         const slide = document.createElement('div');
         slideContainer.append(slide)
+        slide.classList.add('slides')
+        for(let key in element) {
+            console.log(key, element[key]);
+        }
     }
 } 
