@@ -23,6 +23,7 @@ const images = [
 ];
 
 createSlide(images);
+createMiniSlide(images);
 
 let current = 0;
 const next = document.querySelector('.next')
@@ -100,9 +101,26 @@ function createSlide(array) {
         }
 
         for(let key in element) {
-            console.log(key, element[key]);
             slide.append(img)
             img.src = element.image;
         }
     }
 } 
+
+
+function createMiniSlide(array) {
+    const miniSlideContainer = document.querySelector('.mini-slides-container') 
+    for(j = 0; j < array.length; j++) {
+        const element = array[j];
+        const miniSlide = document.createElement('div');
+        const miniImg = document.createElement('img')
+        miniSlideContainer.append(miniSlide)
+        miniSlide.classList.add('mini-slides')
+
+        for(let key in element) {
+            miniSlide.append(miniImg)
+            miniImg.src = element.image;
+        }
+    }
+    
+}
