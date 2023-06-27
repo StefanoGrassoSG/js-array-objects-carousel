@@ -43,6 +43,23 @@ next.addEventListener('click', function(){
     }
 })
 
+const previous = document.querySelector('.back')
+
+previous.addEventListener('click', function(){
+    const allSlides = document.querySelectorAll('.slides')
+
+    if(current > 0) {
+        allSlides[current].classList.remove('active');
+        current--;
+        allSlides[current].classList.add('active');
+    }
+
+    else {
+        allSlides[current].classList.remove('active');
+        current = 4;
+        allSlides[current].classList.add('active');
+    }
+})
 
 
 
