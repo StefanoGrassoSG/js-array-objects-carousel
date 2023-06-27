@@ -35,7 +35,6 @@ body {
 .mini-slides-container {
     width: 20%;
     height: 500px;
-    background-color: blue;
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -50,7 +49,7 @@ body {
 .mini-slides {
     width: 100%;
     height: calc(100% / 5);
-    background-color: red;
+    filter: brightness(50%)
 }
 
 .mini-slides > img {
@@ -75,6 +74,7 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    z-index: 10;
 }
 
 .next:hover, .back:hover {
@@ -97,6 +97,11 @@ body {
 
 .active {
     display: block;
+}
+
+.bright {
+    filter: brightness(100%);
+    border: 3px solid white;
 }
 
 .title-style {

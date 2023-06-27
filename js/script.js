@@ -26,6 +26,7 @@ createSlide(images);
 createMiniSlide(images);
 
 let current = 0;
+let currentMini = 0;
 const next = document.querySelector('.next')
 
 next.addEventListener('click', function(){
@@ -42,6 +43,24 @@ next.addEventListener('click', function(){
         current = 0;
         allSlides[current].classList.add('active');
     }
+
+})
+
+next.addEventListener('click', function(){
+    const allMiniSlides = document.querySelectorAll('.mini-slides')
+
+    if(currentMini < allMiniSlides.length - 1) {
+        allMiniSlides[currentMini].classList.remove('bright');
+        currentMini++;
+        allMiniSlides[currentMini].classList.add('bright');
+    }
+
+    else {
+        allMiniSlides[currentMini].classList.remove('bright');
+        currentMini = 0;
+        allMiniSlides[currentMini].classList.add('bright');
+    }
+
 })
 
 const previous = document.querySelector('.back')
@@ -62,7 +81,22 @@ previous.addEventListener('click', function(){
     }
 })
 
+previous.addEventListener('click', function(){
+    const allMiniSlides = document.querySelectorAll('.mini-slides')
 
+    if(currentMini > 0) {
+        allMiniSlides[currentMini].classList.remove('bright');
+        currentMini--;
+        allMiniSlides[currentMini].classList.add('bright');
+    }
+
+    else {
+        allMiniSlides[currentMini].classList.remove('bright');
+        currentMini = 4;
+        allMiniSlides[currentMini].classList.add('bright');
+    }
+
+})
 
 
 
@@ -115,7 +149,15 @@ function createMiniSlide(array) {
         const miniSlide = document.createElement('div');
         const miniImg = document.createElement('img')
         miniSlideContainer.append(miniSlide)
-        miniSlide.classList.add('mini-slides')
+
+        if (j == 0) {
+            miniSlide.classList.add('mini-slides');   
+            miniSlide.classList.add('bright');  
+        }
+    
+        else {
+            miniSlide.classList.add('mini-slides');  
+        }
 
         for(let key in element) {
             miniSlide.append(miniImg)
