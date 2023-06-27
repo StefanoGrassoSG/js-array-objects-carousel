@@ -22,3 +22,32 @@ const images = [
     }
 ];
 
+createSlide(images);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*********************
+    FUNCTIONS
+**********************/
+
+function createSlide(array) {
+    const slideContainer = document.querySelector('.slides')
+    for(i = 0; i < array.length; i++) {
+        const slide = document.createElement('div');
+        slideContainer.append(slide)
+    }
+} 
