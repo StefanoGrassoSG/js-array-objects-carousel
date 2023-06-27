@@ -37,14 +37,17 @@ createSlide(images);
 **********************/
 
 function createSlide(array) {
-    const slideContainer = document.querySelector('.slides')
+    const slideContainer = document.querySelector('.slides-container')
     for(i = 0; i < array.length; i++) {
         const element = array[i];
         const slide = document.createElement('div');
+        const img = document.createElement('img')
         slideContainer.append(slide)
         slide.classList.add('slides')
         for(let key in element) {
             console.log(key, element[key]);
+            slide.append(img)
+            img.src = element.image;
         }
     }
 } 
