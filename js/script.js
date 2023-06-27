@@ -43,7 +43,16 @@ function createSlide(array) {
         const slide = document.createElement('div');
         const img = document.createElement('img')
         slideContainer.append(slide)
-        slide.classList.add('slides')
+        
+        if (i == 0) {
+            slide.classList.add('slides');   
+            slide.classList.add('active');  
+        }
+    
+        else {
+            slide.classList.add('slides');  
+        }
+        
         for(let key in element) {
             console.log(key, element[key]);
             slide.append(img)
