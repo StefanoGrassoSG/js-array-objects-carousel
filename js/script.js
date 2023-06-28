@@ -26,26 +26,24 @@ createSlide(images);
 createMiniSlide(images);
 
 let current = 0;
-let currentMini = 0;
+
 const next = document.querySelector('.next')
 
 next.addEventListener('click', function(){
     const allSlides = document.querySelectorAll('.slides')
     const allMiniSlides = document.querySelectorAll('.mini-slides')
 
-    allMiniSlides[currentMini].classList.remove('bright');
+    allMiniSlides[current].classList.remove('bright');
     allSlides[current].classList.remove('active');
     if(current < allSlides.length - 1) {
         current++;
-        currentMini++;
     }
 
     else {
         current = 0;
-        currentMini = 0;
     }
     allSlides[current].classList.add('active');
-    allMiniSlides[currentMini].classList.add('bright');
+    allMiniSlides[current].classList.add('bright');
 })
 
 
@@ -55,21 +53,19 @@ previous.addEventListener('click', function(){
     const allSlides = document.querySelectorAll('.slides')
     const allMiniSlides = document.querySelectorAll('.mini-slides')
 
-    allMiniSlides[currentMini].classList.remove('bright');
+    allMiniSlides[current].classList.remove('bright');
     allSlides[current].classList.remove('active');
     if(current > 0) {
         current--;
-        currentMini--;
     }
 
     else {
         current = 4;
-        currentMini = 4;
-
     }
     allSlides[current].classList.add('active');
-    allMiniSlides[currentMini].classList.add('bright');
+    allMiniSlides[current].classList.add('bright');
 })
+
 
 /*********************
     FUNCTIONS
