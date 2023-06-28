@@ -31,76 +31,45 @@ const next = document.querySelector('.next')
 
 next.addEventListener('click', function(){
     const allSlides = document.querySelectorAll('.slides')
-
-    if(current < allSlides.length - 1) {
-        allSlides[current].classList.remove('active');
-        current++;
-        allSlides[current].classList.add('active');
-    }
-
-    else {
-        allSlides[current].classList.remove('active');
-        current = 0;
-        allSlides[current].classList.add('active');
-    }
-
-})
-
-next.addEventListener('click', function(){
     const allMiniSlides = document.querySelectorAll('.mini-slides')
 
-    if(currentMini < allMiniSlides.length - 1) {
-        allMiniSlides[currentMini].classList.remove('bright');
+    allMiniSlides[currentMini].classList.remove('bright');
+    allSlides[current].classList.remove('active');
+    if(current < allSlides.length - 1) {
+        current++;
         currentMini++;
-        allMiniSlides[currentMini].classList.add('bright');
     }
 
     else {
-        allMiniSlides[currentMini].classList.remove('bright');
+        current = 0;
         currentMini = 0;
-        allMiniSlides[currentMini].classList.add('bright');
     }
-
+    allSlides[current].classList.add('active');
+    allMiniSlides[currentMini].classList.add('bright');
 })
+
 
 const previous = document.querySelector('.back')
 
 previous.addEventListener('click', function(){
     const allSlides = document.querySelectorAll('.slides')
-
-    if(current > 0) {
-        allSlides[current].classList.remove('active');
-        current--;
-        allSlides[current].classList.add('active');
-    }
-
-    else {
-        allSlides[current].classList.remove('active');
-        current = 4;
-        allSlides[current].classList.add('active');
-    }
-})
-
-previous.addEventListener('click', function(){
     const allMiniSlides = document.querySelectorAll('.mini-slides')
 
-    if(currentMini > 0) {
-        allMiniSlides[currentMini].classList.remove('bright');
+    allMiniSlides[currentMini].classList.remove('bright');
+    allSlides[current].classList.remove('active');
+    if(current > 0) {
+        current--;
         currentMini--;
-        allMiniSlides[currentMini].classList.add('bright');
     }
 
     else {
-        allMiniSlides[currentMini].classList.remove('bright');
+        current = 4;
         currentMini = 4;
-        allMiniSlides[currentMini].classList.add('bright');
+
     }
-
+    allSlides[current].classList.add('active');
+    allMiniSlides[currentMini].classList.add('bright');
 })
-
-
-
-
 
 /*********************
     FUNCTIONS
